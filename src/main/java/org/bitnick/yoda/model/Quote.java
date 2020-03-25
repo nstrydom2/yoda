@@ -11,6 +11,8 @@ public class Quote {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
+
+    @Column(length = 510)
     private String quote;
 
     public String getId() {
