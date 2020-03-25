@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface QuoteRepository extends JpaRepository<Quote, String> {
-    @Query(value = "SELECT q FROM yoda_quotes q ORDER BY random() LIMIT 1", nativeQuery = true)
+    @Query(value = "SELECT * FROM yoda_quotes ORDER BY random() LIMIT 1", nativeQuery = true)
     Quote findOneRandom();
 }
 
