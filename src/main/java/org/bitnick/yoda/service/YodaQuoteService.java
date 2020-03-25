@@ -15,6 +15,7 @@ public class YodaQuoteService {
     }
 
     public Quote getRandomQuote() {
-        return quoteRespository.findOneRandom();
+        return null;
+        //return quoteRespository.findOneRandom();
     }
 }
