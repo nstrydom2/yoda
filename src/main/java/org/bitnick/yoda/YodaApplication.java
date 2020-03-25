@@ -11,22 +11,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableJpaRepositories
-public class YodaApplication implements CommandLineRunner {
-	private YodaQuoteService yodaQuoteService;
-
-	private Logger LOG = LoggerFactory.getLogger(YodaApplication.class);
-
-	@Autowired
-	public void setYodaScraper(YodaQuoteService yodaQuoteService) {
-		this.yodaQuoteService = yodaQuoteService;
-	}
-
+public class YodaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(YodaApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception {
-		yodaQuoteService.scrapeYodaQuotes();
 	}
 }
