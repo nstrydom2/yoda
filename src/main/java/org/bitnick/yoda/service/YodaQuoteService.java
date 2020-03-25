@@ -1,17 +1,17 @@
 package org.bitnick.yoda.service;
 
 import org.bitnick.yoda.model.Quote;
-import org.bitnick.yoda.repository.QuoteRespository;
+import org.bitnick.yoda.repository.QuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class YodaQuoteService {
-    private QuoteRespository quoteRespository;
+    private QuoteRepository quoteRepository;
 
     @Autowired
-    public void setQuoteRespository(QuoteRespository quoteRespository) {
-        this.quoteRespository = quoteRespository;
+    public void setQuoteRepository(QuoteRepository quoteRepository) {
+        this.quoteRepository = quoteRepository;
     }
 
     public Quote getRandomQuote() {

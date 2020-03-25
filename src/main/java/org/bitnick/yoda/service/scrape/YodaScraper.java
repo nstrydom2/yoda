@@ -1,7 +1,7 @@
 package org.bitnick.yoda.service.scrape;
 
 import org.bitnick.yoda.model.Quote;
-import org.bitnick.yoda.repository.QuoteRespository;
+import org.bitnick.yoda.repository.QuoteRepository;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -9,20 +9,19 @@ import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
 public class YodaScraper {
-    private QuoteRespository quoteRespository;
+    private QuoteRepository quoteRepository;
 
     private Logger LOG = LoggerFactory.getLogger(YodaScraper.class);
 
     @Autowired
-    public void setQuoteRespository(QuoteRespository quoteRespository) {
-        this.quoteRespository = quoteRespository;
+    public void setQuoteRepository(QuoteRepository quoteRepository) {
+        this.quoteRepository = quoteRepository;
     }
 
     public void scrapeYodaQuotes() throws IOException {
@@ -38,7 +37,7 @@ public class YodaScraper {
                 quote.setQuote(element.text());
 
                 LOG.info("Saving: " + quote.toString());
-                quoteRespository.save(quote);
+                quoteRepository.save(quote);
             }
         }
     }
